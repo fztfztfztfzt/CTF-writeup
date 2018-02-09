@@ -16,40 +16,34 @@
 > [fHash.py](fHash.py)
 
 ## Solution
+这题是希望能找到一个碰撞，阅读[fHash.py](fHash.py)可以看到这个哈希函数需要三个参数，两个2 bytes的IV，一个8 bytes的字符串，将字符串分成四份，每份2 bytes，每次取一份，与两个IV一起计算出下一组IV，最后将最后生成的一组IV连起来作为结果。  
+因为生成的位数都很小，所以暴力搜索即可。在每一轮中，字符串的2 bytes分别与两个IV生成下一组的IV，所以我们可以先暴力出一组字符串和IV，再计算另一个IV。  
+最后的解题脚本为[solver.py](solver.py)。  
+得到一组解message: 72f08a801c4edbc6, hl: 0000, hr: 3fca  
+得到flag:SharifCTF{561a6a6e11ad3a61d83c29a49146d62b}  
+```python
+from hashlib import md5
 
+def foo(h, m):
+    return md5(h.encode('utf-8') + m.encode('utf-8')).hexdigest()[:4]
 
-The task provides a program, [fHash.py](fHash.py),
-that creates a hash from a message and two IVs.
+def solve(hl,hr):
+    for i in xrange(2**16):
+        for j in xrange(2**16):
+            l = '{:04x}'.format(i)
+            m = '{:04x}'.format(j)
+            if foo(l, m)==hl:
+                for k in xrange(2**16):
+                    r = '{:04x}'.format(k)
+                    if foo(r, m) == hr:
+                        return m,l,r
 
-The challenge is to obtain a collision with a different message.
-
-Analyzing the hashing program, the input conssts in:
-
-* The two IVs are 2 bytes hex encoded (strings of length 4)
-* The message consists in 8 bytes hex encoded (string of length 16)
-
-The algorithm first splits the message in 4 parts of 2 bytes each
-and consists in a round per part (4 rounds in total).
-
-Each round is divided in two parts, one per IV.
-Both work the same way:
-* Concatenate the IV and the of the message
-* Obtain the md5 of the resulting string
-* Take the first 2 bytes of the digest, in hex (string of length 4)
-* Replace the original IV with the resulting string
-
-Since rounds are independant of each other,
-we can focus just on getting just a valid input (2 IVs and message block)
-that generate the expected output.
-Doing this backward, we can find the initial IVs and message after 4 rounds.
-
-Inside a round the 2 IVs are independant but the message is shared,
-so we just look for a pair of first IV + message block
-that results in the expected output (next first IV).
-When we found this pair, we use the found message and
-try to find a second IV that when concatenated with this found message
-results in the expected output (next second IV).
-
-Since the outputs we are searching for are rather small (2 bytes each),
-it should be pretty easy to find collisions,
-so we can efficiently bruteforce a solution, as done by [solver.py](solver.py).
+left = '260c'
+right = '01da'
+message = ""
+for _ in range(4):
+    m,left,right = solve(left,right)
+    message = m+message
+                    
+print('message: {}, hl: {}, hr: {}'.format(message, left, right))
+```
