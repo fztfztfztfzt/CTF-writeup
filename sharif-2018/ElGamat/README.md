@@ -1,4 +1,4 @@
-# Sharif CTF 8 - ElGamat WriteUp
+# ElGamat
 ## Challenge details
 |       Event        | Challenge | Category | Points  |
 |:-------------------|:----------|:---------|:-------:|
