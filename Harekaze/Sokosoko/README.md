@@ -29,6 +29,6 @@ $stmt = $pdo->query("SELECT key FROM decryption_key WHERE id = '$uuid'");
 $res = $stmt->fetch();
 ```
 所以可以通过构造uuid来解密文件  
-将uuid设置为'or id/*-1111-1111-1111-*/like '9e5%
-成功解密图片
-HareKazeCTF{k41k4n_j1kk4n_j1n615uk4n}
+将uuid设置为'or id/*-1111-1111-1111-*/like '9e5%  
+成功解密图片  
+HareKazeCTF{k41k4n_j1kk4n_j1n615uk4n}  
