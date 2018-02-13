@@ -11,17 +11,19 @@
 > [params.txt](params.txt)
 ## Solution
 给了两个辅助的变量q1和p1   
-```
+```python
 p1 = (sum([pow(p-1, i, p) for i in range(q)]))
 q1 = (sum([pow(q-1, i, q) for i in range(p)]))
 ```
-化简可得  
+化简可得 
+``` 
 2*(p1-1)=(q-1)*p  
-2*(q1-1)=(p-1)*q  
+2*(q1-1)=(p-1)*q
+```  
 解这个方程组即可得到p和q，从而算出d  
 flag为HarekazeCTF{d1d_y0u_7ry_b1n4ry_se4rch?}  
 [solve.py](solve.py)  
-``` 
+```python 
 import gmpy
 from Crypto.Util.number import *
 import binascii
