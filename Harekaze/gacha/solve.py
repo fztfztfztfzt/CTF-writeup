@@ -12,15 +12,13 @@ s.connect((HOST, PORT))
 
 win = 6289644257982517902
 print "start"
-#n = [0 for i in range(3)]
-#c = [0 for i in range(3)]
+
 while True:
     data = s.recv(10240)
     print data
     data2 = pattern2.findall(data)
     data = pattern.findall(data)
-    #n1 = [n[i] for i in range(3)]
-    #c1 = [c[i] for i in range(3)]
+
     n = [0 for i in range(3)]
     c = [0 for i in range(3)]
     for i in range(3):
@@ -28,20 +26,6 @@ while True:
         data[i] = data[i].split(",")
         n[i] = int(data[i][0],16)
         c[i] = int(data[i][2],16)
-    #print n
-    #print c
-    """
-    if len(data2)==3:
-        for i in range(3):
-            data2[i] = int(data2[i][3:])
-        print data2
-        s = data2
-        for d in [[s[0],s[1],s[2]],[s[0],s[2],s[1]],[s[1],s[0],s[2]],[s[1],s[2],s[0]],[s[2],s[0],s[1]],[s[2],s[1],s[0]]]:
-            print "==================="
-            haha = [ pow(c1[i], d[i], n1[i]) for i in range(3) ]
-            for i in range(3):
-                print haha[i]
-    """
     for i in range(3):
         print i,
         print pow(win,65537,n[i])-c[i]==0
