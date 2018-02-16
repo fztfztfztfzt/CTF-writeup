@@ -2,7 +2,7 @@
 ## Challenge details
 |       Event        | Challenge | Category | Points  |
 |:-------------------|:----------|:---------|:-------:|
-|   HarekazeCTF      |  Round and Round         |   Crypto       |   100     |
+|   HarekazeCTF      |  gacha |   Crypto       |   100     |
 
 ### Description
 > ガチャの出現確率「3％」、実際は0.333％　スマホゲーム「KOF」運営会社に措置命令 - ITmedia NEWS
