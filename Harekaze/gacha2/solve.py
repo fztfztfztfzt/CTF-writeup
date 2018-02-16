@@ -56,4 +56,7 @@ while True:
     r.readline()
     for _ in range(3):
         r.readline()
-    print(r.readline())
+    temp = r.readline()
+    if b'flag' in temp:
+        print(temp)
+        break
