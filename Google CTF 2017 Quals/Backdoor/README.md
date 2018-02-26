@@ -11,13 +11,13 @@
 ## Solution
 题目为[Diffie-Hellman密钥交换技术](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange)应用于一个[椭圆曲线加密](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography)上。
 其将加法  
-![](img/1.png)
+![](img/1.png)  
 定义为  
-![](img/2.png)
+![](img/2.png)  
 可以把形式转化为  
-![](img/3.png)
+![](img/3.png)  
 对于乘以a，即我们需要解  
-![](img/4.png)
+![](img/4.png)  
 可以使用[Pohlig–Hellman algorithm](https://en.wikipedia.org/wiki/Pohlig%E2%80%93Hellman_algorithm)
 ```python
 from crypto_backdoor import *
