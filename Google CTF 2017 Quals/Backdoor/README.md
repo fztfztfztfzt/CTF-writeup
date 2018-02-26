@@ -16,8 +16,10 @@
 ![](img/2.png)  
 可以把形式转化为  
 ![](img/3.png)  
-对于乘以a，即我们需要解  
+对于乘以a  
 ![](img/4.png)  
+我们需要解  
+![](img/5.png)   
 可以使用[Pohlig–Hellman algorithm](https://en.wikipedia.org/wiki/Pohlig%E2%80%93Hellman_algorithm)
 ```python
 from crypto_backdoor import *
