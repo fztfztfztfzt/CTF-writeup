@@ -49,6 +49,6 @@ print Sn(encrypted_message,31)
 
 
 ## Link
-https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange
-https://en.wikipedia.org/wiki/Elliptic-curve_cryptography
-https://en.wikipedia.org/wiki/Pohlig%E2%80%93Hellman_algorithm
+https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange  
+https://en.wikipedia.org/wiki/Elliptic-curve_cryptography  
+https://en.wikipedia.org/wiki/Pohlig%E2%80%93Hellman_algorithm  
